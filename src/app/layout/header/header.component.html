@@ -1,0 +1,15 @@
+<div class="row header">
+    <!-- =========== LOGO ========== -->
+    <div class="col-sm-4">
+        <h3 class="cursor" (click)="onNavigate('')">MY APP</h3>
+
+    </div>
+    <div class="col-sm-8">
+        <!-- ========== Menu ========= -->
+        <ul>
+            <li *ngFor="let item of menuData" (click)="onNavigate(item.path)">{{item.name}}</li>
+
+        </ul>
+    </div>
+
+</div>

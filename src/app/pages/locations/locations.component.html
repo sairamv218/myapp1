@@ -1,0 +1,29 @@
+<!-- ======= Serach Bar By Name ====== -->
+
+<div class="row mb-3">
+    <div class="col-sm-4 text-start">
+        <input type="text" class="form-control" placeholder="Enter Name....." [(ngModel)]="searchValue"
+            (keyup)="filterDataByName(locationsData,searchValue)">
+    </div>
+
+</div>
+
+<!-- ======= grid of cards ====== -->
+
+
+<div class="row" *ngIf="loactionsFilterData.length>0">
+    <ng-container *ngFor="let location of loactionsFilterData">
+        <div class="col-sm-3 col-md-3 col-xl-3 mb-3">
+            <div class="card" style="width: 18rem;">
+
+                <div class="card-body">
+                    <h5 class="card-title cursor" (click)="onCLickLocation(location)">{{location.name}}</h5>
+                    <p>Type : {{location.type}}</p>
+                    <p>Residents : {{location.residents.length}}</p>
+                    <p>Dimensions : {{location.dimension}}</p>
+                </div>
+
+            </div>
+        </div>
+    </ng-container>
+</div>

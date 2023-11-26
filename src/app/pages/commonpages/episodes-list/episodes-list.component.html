@@ -1,0 +1,50 @@
+<!-- ======= Episodes List ====== -->
+
+
+<div class="episodes" *ngIf="CurrentData.length>0">
+    <ng-container *ngFor="let item of CurrentData">
+
+        <div class="episodeCard">
+            <ul>
+                <li>
+                    <h6>{{item.name}}</h6>
+                    <p>Episode : {{item.episode}}</p>
+
+                </li>
+            </ul>
+        </div>
+    </ng-container>
+</div>
+
+<!-- ======= Pagination ====== -->
+
+
+<div class="row">
+    <div class="col-sm-12 mt-3">
+        <div class="text-center">
+
+            <nav aria-label="Page navigation example">
+                <ul class="pagination cursor">
+                    <li class="page-item" (click)="onClickPage('','Prev')">
+                        <a class="page-link" aria-label="Previous">
+                            <span aria-hidden="true">&laquo;</span>
+                        </a>
+                    </li>
+                    <ng-container *ngFor="let page of Pages">
+                        <li class="page-item" [ngClass]="page == CurrentPageId ? 'active' : ''"><a class="page-link"
+                                (click)="onClickPage(page,'')">{{page}}</a></li>
+                    </ng-container>
+
+                    <li class="page-item" (click)="onClickPage('','Next')">
+                        <a class="page-link" aria-label="Next">
+                            <span aria-hidden="true">&raquo;</span>
+                        </a>
+                    </li>
+                </ul>
+            </nav>
+
+        </div>
+
+    </div>
+
+</div>

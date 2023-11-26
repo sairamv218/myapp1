@@ -1,0 +1,48 @@
+<div *ngIf="profileInfo != ''">
+    <div class="profile">
+        <div class="row">
+            <div class="col-sm-5">
+                <img [src]="profileInfo.image" alt="Card image cap">
+
+            </div>
+            <div class="col-sm-7 mt-4">
+                <div class="card-body">
+                    <h5 class="card-title">{{profileInfo.name}}</h5>
+                    <ul class="list-group list-group-flush">
+                        <li class="list-group-item">species : {{profileInfo.species}}</li>
+                        <li class="list-group-item">gender : {{profileInfo.gender}}</li>
+                    </ul>
+                    <h6>Origin Details</h6>
+                    <div class="card-body">
+                        <ul class="list-group list-group-flush">
+                            <li *ngFor="let key of profileInfo.originKeys" class="list-group-item">{{key}} :
+                                {{profileInfo.origin[key]}}</li>
+                        </ul>
+                    </div>
+                    <h6>Location Details</h6>
+                    <div class="card-body">
+                        <ul class="list-group list-group-flush">
+                            <li *ngFor="let key of profileInfo.LocationKeys" class="list-group-item">{{key}} :
+                                {{profileInfo.location[key]}}</li>
+                        </ul>
+                    </div>
+
+                    <div class="card border-success mt-3 text-center w-25 cursor" (click)="onClickEpisodes()">
+                        <div class="card-body text-success">
+                            <h5 class="card-title">{{profileInfo.episode.length}} Episodes</h5>
+
+                        </div>
+                    </div>
+
+
+                </div>
+            </div>
+
+        </div>
+
+    </div>
+</div>
+
+<div *ngIf="EpisodeIds.length>0">
+    <app-episodes-list [EpisodeIds]="EpisodeIds" [from]="'profile'"></app-episodes-list>
+</div>

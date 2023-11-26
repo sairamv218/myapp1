@@ -1,0 +1,27 @@
+<!-- ======= Serach Bar By Name ====== -->
+
+<div class="row mb-3">
+    <div class="col-sm-4 text-start">
+        <input type="text" class="form-control" placeholder="Enter Name....." [(ngModel)]="searchValue"
+            (keyup)="filterDataByName(profilesData,searchValue)">
+    </div>
+
+</div>
+
+<!-- ======= grid of cards ====== -->
+
+<div class="row" *ngIf="profilesFilterData.length>0">
+    <ng-container *ngFor="let profile of profilesFilterData">
+        <div class="col-sm-3 col-md-3 col-xl-3 mb-3">
+            <div class="card" style="width: 18rem;">
+                <img class="card-img-top cursor" [src]="profile.image" alt="profile_image"
+                    (click)="onCLickProfile(profile)">
+                <div class="card-body">
+                    <h5 class="card-title cursor" (click)="onCLickProfile(profile)">{{profile.name}}</h5>
+                </div>
+
+            </div>
+        </div>
+    </ng-container>
+
+</div>
